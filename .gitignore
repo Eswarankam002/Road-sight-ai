@@ -5,6 +5,7 @@ __pycache__/
 .env
 
 # YOLO / ML model files (keep best1.pt for deployment)
+yolov8m.pt
 *.pth
 *.onnx
 
