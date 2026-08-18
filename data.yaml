@@ -1,0 +1,12 @@
+path: dataset
+train: train/images
+val: val/images
+
+nc: 5
+
+names:
+  0: damage
+  1: crack
+  2: pothole
+  3: patch
+  4: rutting

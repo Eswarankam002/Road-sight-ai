@@ -1,0 +1,15 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env
+
+# YOLO / ML model files
+*.pt
+*.pth
+*.onnx
+
+# Generated files
+outputs/
+results/
+uploads/

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ROAD SIGHT AI</title>
+</head>
+<body>
+    <h2>Road Sight AI - Road Damage Detection</h2>
+
+    <h3>1. Image Detection</h3>
+    <form action="/predict_image" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Detect Image</button>
+    </form>
+
+    <h3>2. Video Detection</h3>
+    <form action="/predict_video" method="post" enctype="multipart/form-data">
+        <input type="file" name="video" required>
+        <button type="submit">Detect Video</button>
+    </form>
+
+    <h3>3. Live Webcam Detection</h3>
+    <a href="/live" target="_blank">
+        <button>Start Live Detection</button>
+    </a>
+
+</body>
+</html>
