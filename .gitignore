@@ -4,8 +4,7 @@ __pycache__/
 *.pyc
 .env
 
-# YOLO / ML model files
-*.pt
+# YOLO / ML model files (keep best1.pt for deployment)
 *.pth
 *.onnx
 
