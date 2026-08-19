@@ -5,7 +5,11 @@ from pathlib import Path
 
 import base64
 import io
-import cv2
+try:
+    import cv2
+    CV2_AVAILABLE = True
+except ImportError:
+    CV2_AVAILABLE = False
 import numpy as np
 import requests
 import streamlit as st
@@ -619,7 +623,7 @@ def run_detection(image: Image.Image):
     image_array = np.array(image)
     results = model(image_array, conf=0.25, stream=False)
     result_image = results[0].plot()
-    result_image = cv2.cvtColor(result_image, cv2.COLOR_BGR2RGB)
+    result_image = result_image[:, :, ::-1]
     total_detections = len(results[0].boxes)
 
     detections = []
@@ -897,6 +901,8 @@ def show_detection_results(result_image, total_detections, detections, title="De
 
 
 def process_video(uploaded_video):
+    if not CV2_AVAILABLE:
+        raise ImportError("Video processing requires OpenCV. Please use image mode instead.")
     model = load_model()
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as temp_file:
